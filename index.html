@@ -1,0 +1,82 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Utilities Calculator</title>
+    <style>
+      body {background-color : powderblue;}
+      input {
+        background-color: white;
+        width: 50%;
+        margin: 0 auto;
+      }
+      .center-div {
+        margin: 0 auto;
+        width: 300px;
+      }
+      .legends {
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        font-size: 24px;
+        text-align: center;
+      }
+      .button {
+        width: 100%;
+        background-color: #bbb;
+        padding: 10px
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center-div">
+      <button id="add" class="button">Add Person</button>
+      <button id="remove" class="button">Remove Person</button>
+      <form method="post" action="util_calc.php" id="formmy">
+        <legend id="legend" class="legends">Name | Amount</legend>
+        <input type="submit" class=button value="Submit" id="submit">
+        <br>
+    </div>
+    <script>
+      addInput();
+      addInput();
+      addInput();
+
+      document.getElementById("add").addEventListener("click", addInput);
+      document.getElementById("remove").addEventListener("click", removeInput);
+
+      function removeInput() {
+        var s = document.getElementById("formmy");
+        if (document.getElementById("submit").previousSibling.id != "legend"){
+          s.removeChild(document.getElementById("submit").previousSibling);
+        }
+        if (document.getElementById("submit").previousSibling.id != "legend"){
+          s.removeChild(document.getElementById("submit").previousSibling);
+        }
+        if (document.getElementById("submit").previousSibling.id != "legend"){
+          s.removeChild(document.getElementById("submit").previousSibling);
+        }
+      }
+
+      function addInput() {
+        //document.getElementById("add").onclick = function() {myFunction()};
+        var i = document.createElement("input");
+        i.type = "text";
+        i.name = "Name";
+        i.id = "name";
+        i.placeholder = "Name";
+
+        //create input element
+        var j = document.createElement("input");
+        j.type = "text";
+        j.name = "Amount";
+        j.id = "amount";
+        j.placeholder = "$";
+
+        var k = document.createElement("br");
+
+        //document.getElementById("formmy").insertBefore(k, document.getElementById("submit")); //pure javascript
+        document.getElementById("formmy").insertBefore(i, document.getElementById("submit")); //pure javascript
+        document.getElementById("formmy").insertBefore(j, document.getElementById("submit")); //pure javascript
+        document.getElementById("formmy").insertBefore(k, document.getElementById("submit")); //pure javascript
+      }
+    </script>
+  </body>
+</html>
